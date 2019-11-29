@@ -1,0 +1,7 @@
+{
+  "name": "erc8",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,31 @@
+ion-list-header {
+    background-color: #ececec;
+    }
+    .text-center {
+    text-align: center;
+    }
+    .text-left {
+    text-align: left;
+    }
+    .placeholder-profile {
+    color: #cccccc;
+    }
+    .dob-label {
+    color: #000000 !important;
+    padding: 10px !important;
+    max-width: 50% !important;
+    }
+
+    :host {
+        ion-content {
+            --background: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary));
+    
+        }
+    
+      
+    }
+    
+    .paz {
+        position: relative;
+        z-index: 10;
+    }

@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-toolbar color="light">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="tabs/emergency"></ion-back-button>
+          </ion-buttons>
+      <ion-title>Emergency Alert List</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+ <ion-content padding>
+        <ion-list>
+          <ion-list-header> Emergency </ion-list-header>
+          <ion-item *ngFor="let emergency of emergencyList | async" (click)="moreBillOptions(emergency.emergencyID)"> 
+            <ion-icon name="settings" color="danger" slot="end"></ion-icon>
+            <ion-label>
+              <h2>{{emergency.emergencyType}}</h2>
+              <h3>{{emergency.emergencyId}}</h3>
+              <h3><strong>Date: </strong>{{emergency.emergencyDate}}</h3>
+              <h3><strong>Time: </strong> {{emergency.emergencyTime}}</h3>
+              <p> <strong>Latitude: </strong> {{emergency.lat}}</p>
+              <p> <strong>Longitude: </strong> {{emergency.long}}</p>
+              <p>{{emergency.emergencyID}}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+</ion-content>

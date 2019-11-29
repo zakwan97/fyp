@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar color="light">
+      
+    <ion-title>Create Contact</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    
+  <form [formGroup]="ContactForm">
+    <ion-list-header> Emergency Contact 1 </ion-list-header>
+    <ion-item>
+      <ion-label position="stacked">Name</ion-label>
+      <ion-input formControlName="ContactName1" type="text" placeholder="Enter Name"
+        [class.invalid]="!ContactForm.controls['ContactName1'].valid && ContactForm.controls['ContactName1'].touched">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Contact Number</ion-label>
+      <ion-input formControlName="ContactNum1" type="tel" placeholder="Enter Phone Number"
+        [class.invalid]="!ContactForm.controls['ContactNum1'].valid && ContactForm.controls['ContactNum1'].touched">
+      </ion-input>
+    </ion-item>
+    <br>
+    <ion-list-header> Emergency Contact 2 </ion-list-header>
+      <ion-item>
+        <ion-label position="stacked">Name</ion-label>
+        <ion-input formControlName="ContactName2" type="text" placeholder="Enter Name"
+          [class.invalid]="!ContactForm.controls['ContactName2'].valid && ContactForm.controls['ContactName2'].touched">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Contact Number</ion-label>
+        <ion-input formControlName="ContactNum2" type="tel" placeholder="Enter Phone Number"
+          [class.invalid]="!ContactForm.controls['ContactNum2'].valid && ContactForm.controls['ContactNum2'].touched">
+        </ion-input>
+      </ion-item>
+    <br>
+    <ion-list-header> Emergency Contact 3 </ion-list-header>
+    <ion-item>
+      <ion-label position="stacked">Name </ion-label>
+      <ion-input formControlName="ContactName3" type="text" placeholder="Enter Name"
+        [class.invalid]="!ContactForm.controls['ContactName3'].valid && ContactForm.controls['ContactName3'].touched">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Contact Number </ion-label>
+      <ion-input formControlName="ContactNum3" type="tel" placeholder="Enter Phone Number"
+        [class.invalid]="!ContactForm.controls['ContactNum3'].valid && ContactForm.controls['ContactNum3'].touched">
+      </ion-input>
+    </ion-item>
+  <br>
+    <ion-button shape="round" expand="block"  [disabled]="!ContactForm.valid" (click)="createContact(ContactForm)" color="success" >
+      Create Contact
+    </ion-button>
+  </form> 
+
+
+
+  <!--<ion-item (click)="updateContact1()">
+    <ion-label> {{ (contacts | async)?.ContactNum1 }}
+    <ion-grid>
+    <ion-row>
+    <ion-col class="text-left" size="5"> Phone </ion-col>
+    <ion-col class="text-center" size="7" *ngIf="contacts?.ContactNum1">
+      {{ (contacts | async)?.ContactNum1 }}
+    </ion-col>
+    <ion-col size="7" class="placeholder-profile text-center" *ngIf="!contacts?.ContactNum1">
+      <span> Tap here to edit. </span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </ion-label>
+</ion-item>
+
+
+<ion-item (click)="updateContact2()">
+  <ion-label>{{ (contacts | async)?.ContactNum2 }}
+  <ion-grid>
+  <ion-row>
+  <ion-col class="text-left" size="5"> Phone </ion-col>
+  <ion-col class="text-center" size="7" *ngIf="contacts?.ContactNum2">
+  {{ contacts?.ContactNum2 }}
+  </ion-col>
+  <ion-col size="7" class="placeholder-profile text-center" *ngIf="!contacts?.ContactNum2">
+    <span> Tap here to edit. </span>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-label>
+</ion-item>-->
+</ion-content>

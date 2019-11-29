@@ -1,0 +1,211 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-title>Emergency Contact</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!--<ion-content padding>
+    
+  <ion-item (click)="updateContact1()" *ngFor="let contacts of contacts | async">
+    <ion-label> 
+    <ion-grid>
+    <ion-row>
+    <ion-col class="text-left" size="5"> Phone 1 </ion-col>
+    <ion-col class="text-center" size="7" *ngIf="contacts?.ContactNum1">
+      {{ contacts?.ContactNum1 }}
+    </ion-col>
+    {{ contacts?.ContactNum1 }}
+      <span> Tap here to edit. </span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </ion-label>
+</ion-item>
+
+
+<ion-item (click)="updateContact2()" *ngFor="let contacts of contacts | async">
+  <ion-label>
+  <ion-grid>
+  <ion-row>
+  <ion-col class="text-left" size="5"> Phone 2 </ion-col>
+  <ion-col class="text-center" size="7" *ngIf="contacts?.ContactNum2">
+  {{ contacts?.ContactNum2 }}
+  </ion-col>
+  <ion-col size="7" class="placeholder-profile text-center" *ngIf="!contacts?.ContactNum2">
+    <span> Tap here to edit. </span>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-label>
+</ion-item>
+</ion-content>
+-->
+<ion-content padding>
+
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Refreshing...">
+        </ion-refresher-content>
+      </ion-refresher>
+  
+
+      
+      
+
+  <!-- List -->
+
+   <ion-list-header>List of contacts </ion-list-header>
+      <ion-item *ngFor="let emergency of contacts | async">
+     
+        <ion-label>
+        <h2><strong>{{emergency.ContactID}}</strong></h2>
+        <h2>Name: {{emergency.ContactName}}</h2>
+        <h2>Phone Number: {{emergency.ContactNum}}</h2>
+        </ion-label>
+      </ion-item>
+      <br>
+
+<!-- edit info -->
+<p class = "one">Click the button to edit details</p>
+      <button ion-button (click)="alive = !alive; hide()">Edit Contact 1</button>
+
+      <button ion-button (click)="alive2 = !alive2 ; hide2()">Edit Contact 2</button> 
+     
+      <button ion-button (click)="alive3 = !alive3 ; hide3()">Edit Contact 3</button>
+
+<!-- Edit Info --> 
+
+      <div *ngIf="alive">
+          <ion-list> 
+              <ion-list-header> Personal Information Contact 1 </ion-list-header>
+              <ion-item (click)="updateContactName1()">
+                  <ion-label>
+                  <ion-grid>
+                  <ion-row>
+                  <ion-col class="text-left" size="5"> Name </ion-col>
+                  <ion-col class="text-center" size="7" *ngIf="nombor?.ContactName1">
+                  {{nombor?.ContactName1}}
+                  </ion-col>
+                  <ion-col size="7" class="placeholder-profile text-center" *ngIf="!nombor?.ContactName1">
+                  <span> Tap here to edit. </span>
+                  </ion-col>
+                  </ion-row>
+                  </ion-grid>
+                  </ion-label>
+                  </ion-item>
+      
+                  <ion-item (click)="updateContact1()">
+                    <ion-label>
+                    <ion-grid>
+                    <ion-row>
+                    <ion-col class="text-left" size="5"> Contact </ion-col>
+                    <ion-col class="text-center" size="7" *ngIf="nombor?.ContactNum1">
+                    {{nombor?.ContactNum1}}
+                    </ion-col>
+                    <ion-col size="7" class="placeholder-profile text-center" *ngIf="!nombor?.ContactNum1">
+                    <span> Tap here to edit. </span>
+                    </ion-col>
+                    </ion-row>
+                    </ion-grid>
+                    </ion-label>
+                    </ion-item>
+                    <ion-button shape="round" expand="block" size="medium" (click)="alive = !alive" color="success" >
+                      Done
+                    </ion-button>
+                </ion-list>
+                
+      </div>
+      <div *ngIf="!alive"></div>
+
+      <div *ngIf="alive2">
+          <ion-list>
+              <ion-list-header> Personal Information Contact 2 </ion-list-header>
+              <ion-item (click)="updateContactName2()">
+                  <ion-label>
+                  <ion-grid>
+                  <ion-row>
+                  <ion-col class="text-left" size="5"> Name </ion-col>
+                  <ion-col class="text-center" size="7" *ngIf="nombor?.ContactName2">
+                  {{nombor?.ContactName2}}
+                  </ion-col>
+                  <ion-col size="7" class="placeholder-profile text-center" *ngIf="!nombor?.ContactName2">
+                  <span> Tap here to edit. </span>
+                  </ion-col>
+                  </ion-row>
+                  </ion-grid>
+                  </ion-label>
+                </ion-item>
+  
+                <ion-item (click)="updateContact2()">
+                  <ion-label>
+                  <ion-grid>
+                  <ion-row>
+                  <ion-col class="text-left" size="5"> Contact </ion-col>
+                  <ion-col class="text-center" size="7" *ngIf="nombor?.ContactNum2">
+                  {{nombor?.ContactNum2}}
+                  </ion-col>
+                  <ion-col size="7" class="placeholder-profile text-center" *ngIf="!nombor?.ContactNum2">
+                  <span> Tap here to edit. </span>
+                  </ion-col>
+                  </ion-row>
+                  </ion-grid>
+                  </ion-label>
+                </ion-item>
+                <ion-button shape="round" expand="block" size="medium" (click)="alive2 = !alive2" color="success" >
+                  Done
+                </ion-button>
+              </ion-list>
+      </div>
+      <div *ngIf="!alive2 ; "></div>
+
+      <div *ngIf="alive3">
+          <ion-list>
+              <ion-list-header> Personal Information Contact 3 </ion-list-header>
+              <ion-item (click)="updateContactName3()">
+                  <ion-label>
+                  <ion-grid>
+                  <ion-row>
+                  <ion-col class="text-left" size="5"> Name </ion-col>
+                  <ion-col class="text-center" size="7" *ngIf="nombor?.ContactName3">
+                  {{nombor?.ContactName3}}
+                  </ion-col>
+                  <ion-col size="7" class="placeholder-profile text-center" *ngIf="!nombor?.ContactName3">
+                  <span> Tap here to edit. </span>
+                  </ion-col>
+                  </ion-row>
+                  </ion-grid>
+                  </ion-label>
+                </ion-item>
+  
+                <ion-item (click)="updateContact3()">
+                  <ion-label>
+                  <ion-grid>
+                  <ion-row>
+                  <ion-col class="text-left" size="5"> Contact </ion-col>
+                  <ion-col class="text-center" size="7" *ngIf="nombor?.ContactNum3">
+                  {{nombor?.ContactNum3}}
+                  </ion-col>
+                  <ion-col size="7" class="placeholder-profile text-center" *ngIf="!nombor?.ContactNum3">
+                  <span> Tap here to edit. </span>
+                  </ion-col>
+                  </ion-row>
+                  </ion-grid>
+                  </ion-label>
+                </ion-item>
+                <ion-button shape="round" expand="block" size="medium" (click)="alive3 = !alive3" color="success" >
+                  Done
+                </ion-button>
+              </ion-list>
+      </div>
+      <div *ngIf="!alive3"></div>
+        
+            
+
+
+                
+                 
+              
+</ion-content>

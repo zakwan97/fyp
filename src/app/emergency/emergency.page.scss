@@ -1,0 +1,40 @@
+input[type=radio] {
+    border: 0px;
+    width: 20%;
+    height: 2em;
+    position: relative;
+}
+
+img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 100px;
+    height: 80px ;
+  }
+
+  
+    ion-card{
+      display: flex;
+      flex-direction: column;
+      width: 100% !important;
+      height: 25% !important;
+      margin: 0 !important;
+    }
+  
+    :host {
+      ion-content {
+          --background: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary));
+  
+      }
+
+  }
+  
+  .paz {
+      position: relative;
+      z-index: 10;
+  }
+
+  .one{
+    color: white;
+  }

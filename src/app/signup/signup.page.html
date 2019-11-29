@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="light">
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="login"></ion-back-button>
+        </ion-buttons>
+    <ion-title>Sign up</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <form [formGroup]="signupForm">
+        <ion-item>
+            <ion-label position="stacked">First Name</ion-label>
+            <ion-input formControlName="userFirstName" type="text" placeholder="Your First Name" [class.invalid]="!signupForm.controls['userFirstName'].valid && signupForm.controls['userFirstName'].touched"> </ion-input>
+            </ion-item>
+            <ion-item class="error-message" *ngIf="!signupForm.controls['userFirstName'].valid && signupForm.controls['userFirstName'].touched">
+            <ion-label>Please Enter Your Name.</ion-label>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="stacked">Last Name</ion-label>
+                <ion-input formControlName="userLastName" type="text" placeholder="Your Last Name" [class.invalid]="!signupForm.controls['userLastName'].valid && signupForm.controls['userLastName'].touched"> </ion-input>
+                </ion-item>
+                <ion-item class="error-message" *ngIf="!signupForm.controls['userLastName'].valid && signupForm.controls['userLastName'].touched">
+                <ion-label>Please Enter Your Last Name.</ion-label>
+            </ion-item>
+
+            
+            <ion-item>
+            <ion-label position="stacked">Email</ion-label>
+            <ion-input formControlName="userEmail" type="email" placeholder="Your Email Address" [class.invalid]="!signupForm.controls['userEmail'].valid && signupForm.controls['userEmail'].touched"> </ion-input>
+            </ion-item>
+            <ion-item class="error-message" *ngIf="!signupForm.controls['userEmail'].valid && signupForm.controls['userEmail'].touched">
+            <ion-label>Please enter a valid email.</ion-label>
+            </ion-item>
+
+            <ion-item>
+            <ion-label position="stacked">Password</ion-label>
+            <ion-input formControlName="userPassword" type="password" placeholder="Your Password" [class.invalid]="!signupForm.controls['userPassword'].valid && signupForm.controls['userPassword'].touched"> </ion-input>
+            </ion-item>
+            <ion-item class="error-message" *ngIf="!signupForm.controls['userPassword'].valid && signupForm.controls['userPassword'].touched">
+            <ion-label>Your password needs more than 6 characters.</ion-label>
+            </ion-item>
+
+
+            <ion-item>
+              <ion-label position="stacked">Phone Number</ion-label>
+              <ion-input formControlName="phoneNum" type="tel" placeholder="Your Phone Number" [class.invalid]="!signupForm.controls['phoneNum'].valid && signupForm.controls['phoneNum'].touched" > </ion-input>
+              </ion-item>
+              <ion-item class="error-message" *ngIf="!signupForm.controls['phoneNum'].valid && signupForm.controls['phoneNum'].touched">
+              <ion-label>Your phone number pattern - 0123456789.</ion-label>
+              </ion-item>
+
+
+            <ion-button expand="block" (click)="signupUser(signupForm)" [disabled]="!signupForm.valid" color="success">
+            Create Account
+            </ion-button>
+            </form>
+            </ion-content>
+
+
+

@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar color="light">
+      <ion-buttons slot="end"  >
+        <ion-button (click)="viewList()"><p>view</p><ion-icon name="list-box"></ion-icon></ion-button>
+        </ion-buttons>
+    <ion-title>Emergency</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Refreshing...">
+        </ion-refresher-content>
+      </ion-refresher>
+
+    <ion-card color="medium">
+        <ion-item color="dark">
+          <ion-icon name="pin" slot="start" color="success"></ion-icon>
+          <ion-label>Your Location</ion-label>
+        </ion-item>
+      
+        <ion-card-content>
+          <!--<ion-item color="medium"><p>Latitude : {{responseObj?.latitude}} <br> Longitude : {{responseObj?.longitude}}</p></ion-item>-->
+          <ion-item><p>Address : {{responseObj?.address}}</p></ion-item>
+        </ion-card-content>
+      </ion-card>
+
+  <form [formGroup]="emergencyForm">
+    <!--<ion-item>
+      <ion-label position="stacked">Emergency Name</ion-label>
+      <ion-input formControlName="emergencyName" type="text" placeholder="What Emergency?"
+        [class.invalid]="!emergencyForm.controls['emergencyName'].valid && emergencyForm.controls['emergencyName'].touched">
+      </ion-input>
+    </ion-item>-->
+    <p class = "one">Please Select Your Emergency:</p>
+    <ion-list>
+      <ion-item>
+      <ion-label><img src="assets/img/fire1.png"> Fire</ion-label>
+      <input type= "radio" value= "Fire" formControlName="emergencyName" required>
+      </ion-item> 
+    <ion-item>
+      <ion-label> <img src="assets/img/car.png"> Vehicle Accident</ion-label>
+      <input type= "radio" value= "Vehicle Accident" formControlName="emergencyName" required>
+    </ion-item> 
+    <ion-item>
+      <ion-label><img src="assets/img/injured.png"> Injured</ion-label>
+      <input type= "radio" value= "Body Injuries" formControlName="emergencyName" required>
+    </ion-item>
+</ion-list>
+    <!--<ion-item>  
+      <ion-label>Date</ion-label>
+      <ion-datetime displayFormat="D MMM, YY" pickerFormat="DD MMM YYYY" formControlName="emergencyDate"
+        max="2020-10-20" [class.invalid]="!emergencyForm.controls['emergencyDate'].valid
+        && emergencyForm.controls['emergencyDate'].touched">
+      </ion-datetime>
+    </ion-item>
+    <br>-->
+    <ion-button shape="round" expand="block" size="large" (click)=" createEmergency(emergencyForm); createEmergency2(emergencyForm) ; createEmergency3(emergencyForm)  " color="danger" >
+      SEND ALERT
+      <ion-icon name="alert"></ion-icon>
+    </ion-button>
+
+  </form>
+</ion-content>
+
